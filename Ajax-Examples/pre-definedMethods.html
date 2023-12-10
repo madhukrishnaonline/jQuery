@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Ajax</title>
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/jQuery-UI/jquery-ui.js"></script>
+<link rel="stylesheet" href="../../../node_modules/jQuery-UI/jquery-ui.css">
+<link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+         $(function()
+         {
+           $("img").resizable();
+           $("#hcj").sortable();
+           $(".grid").sortable();
+           $("#accordion").accordion().sortable();
+           $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+           });
+         })
+    </script>
+    <style>
+        
+         .grid{
+            list-style: none;
+            align-content: center;
+            width: 150px;
+            height: 200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            
+         }
+         .grid li{
+              margin-bottom: 5px;
+              margin-left: 5px;
+              border: 2px solid gray;
+              padding: 5px;
+              margin: 5px;
+              text-align: center;
+         }
+         #date{
+            margin-bottom: 20px;
+         }
+         #datepicker{
+            border: none;
+         }
+         .input-group{
+            border: 1px solid gray;
+            width: 200px;
+         }
+    </style>
+</head>
+<body>
+    <div id="date">
+        <h2>Select Date Course</h2>
+        <div class="input-group">
+            <input type="text" class="form-control" id="datepicker"><span class="input-group-text"><span class="bi bi-calendar-check"></span></span>
+        </div>
+    </div>
+    <img src="../../assets/Attention.jpg" width="300px" height="300px">
+    <div>
+        <ol  id="hcj">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+        </ol>
+    </div>
+    <div>
+        <ul class="grid">
+            <li>1</li>
+            <li>5</li>
+            <li>7</li>
+            <li>10</li>
+            <li>8</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>6</li>
+            <li>9</li>
+        </ul>
+    </div>
+    <div id="accordion" style="margin-top: 20px; height: 400px;">
+        <h2>HTML</h2>
+        <div>
+            <p>HTML is a presentation Language</p>
+        </div>
+        <h2>CSS</h2>
+        <div>
+            <p>CSS is Styles Language</p>
+        </div>
+        <h2>JavaScript</h2>
+        <div>
+            <p>JavaScript is a Scripting/Programming Language</p>
+        </div>
+    </div>
+</body>
+</html>
