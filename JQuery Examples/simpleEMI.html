@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personal Loan EMI Calculator</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+
+    <script>
+        $(function()
+        {
+            //Amount Change
+           $("#rangeAmt").change(function()
+           {
+               $("#amount").html("&#8377;"+"&nbsp;"+$("#rangeAmt").val());
+           })   
+           //years Change
+           $("#rangeYear").change(function()
+           {
+               $("#years").html($("#rangeYear").val());
+           })
+           //Interest Rate Change
+           $("#rangeInterest").change(function()
+           {
+               $("#interest").html($("#rangeInterest").val());
+           })
+
+            //var amount,time,rate;
+            $("button").click(function()
+            {
+               var p = parseInt($("#rangeAmt").val());
+               var t = parseInt($("#rangeYear").val()*12);
+               var r = parseFloat($("#rangeInterest").val()/12/100);
+
+               var EMI = p*r/(1-(Math.pow(1/(1+r),t)));
+
+               $("#result").html(`Your Monthly EMI will be <b> &#8377;${Math.round(EMI)}</b> per month`);
+            })
+        })
+    </script>
+
+    <style>
+         #amount,#years,#interest{
+            border: 1px solid black;
+            width: 400px;
+            padding: 7px;
+            margin: 4px;
+            border-radius: 5px;
+
+         }
+    </style>
+</head>
+<body class="container-fluid">
+    <h1 class="text-center">Personal Loan EMI Calculator</h1>
+    <div class="border rounded rounded-2 shadow p-5 mt-5" style="height: 300px;">
+        <div id="calculator">
+            <div class="row">
+                <div class="col">
+                    Amount You Need <span id="amount">&#8377; 50000</span>
+                </div>
+                <div class="col">
+                    for <span id="years"> 1 </span> years
+                </div>
+                <div class="col">
+                    interest rate <span id="interest">10.5</span> %
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <div class=" w-75">
+                        <input type="range" id="rangeAmt" class="form-range" min="50000" max="500000" value="50000" step="50000">
+                        <div class="d-flex justify-content-between">
+                            <span>&#8377; 50,000</span> 
+                            <span>&#8377; 5,00,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                   <div class="w-75">
+                    <input type="range" id="rangeYear" class="form-range" min="1" max="5" step="1" value="1">
+                      <div class="d-flex justify-content-between">
+                        <span>1 Year</span>
+                        <span>5 Year</span>
+                      </div>
+                   </div>
+                </div>
+                <div class="col">
+                   <div class="w-75">
+                     <input type="range" id="rangeInterest" class="form-range" min="10.5" max="20.5" value="10.5" step="0.5">
+                      <div class="d-flex justify-content-between">
+                          <span>10.5%</span>
+                          <span>20.5%</span>
+                      </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary text-capitalize mt-3">Calculate</button>
+            <p id="result"></p>
+        </div>
+    </div>
+</body>
+</html>

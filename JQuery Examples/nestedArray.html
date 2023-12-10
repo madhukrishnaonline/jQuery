@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+
+    <script>
+       $(function() {
+       var arr =
+        [
+                {category:"Fashion", Products: ["t-shirt","jeans","Joggers"]},
+                {category:"Electronics", Products: ["Cooker","Electric Cooker",]}
+        ]
+         $.each(arr, function(key,categories)
+         {
+            $(`<li>${categories.category}</li>`).appendTo("ol");
+
+            $.each(categories.Products, function(key,products)
+            {
+                $(`<li>${products}</li>`);
+                $("li").appendTo("ul");
+            })
+           
+         })
+       })
+    </script>
+</head>
+<body>
+    <div>
+       <ol>
+          
+       </ol>
+    </div>
+</body>
+</html>

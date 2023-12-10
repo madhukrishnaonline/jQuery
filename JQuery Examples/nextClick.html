@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fakestore API</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+       $(function()
+       {
+          function LoadProduct(url)
+          {
+             fetch(url)
+             .then(response => response.json())
+             .then(product=>
+             {
+                $("#title").html(product.title);
+                $("img").attr("src",`${product.image}`);
+                $("#lblPrice").html("$"+ product.price);
+                $("#description").html(product.description);
+                
+             })
+          }
+          LoadProduct("http://fakestoreapi.com/products/1");
+
+          var products = 1;
+          $("#nextClick").click(function()
+          {
+           // $("img").attr("src",``);
+             products++;
+             LoadProduct(`http://fakestoreapi.com/products/${products}`);
+          })
+          $("#prevClick").click(function()
+          {
+            //  $("img").attr("src",``);
+             products--;
+             LoadProduct(`http://fakestoreapi.com/products/${products}`);
+          })
+       })
+    </script>
+    <style>
+         #lblPrice{
+            width: 150px;
+            padding: 25px;
+            position: absolute;
+            left: 800px;
+            top: 200px;
+            border: 1px solid gray;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: aquamarine;
+         }
+         #description{
+            padding: 25px;
+            position: absolute;
+            left: 800px;
+            top: 300px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+    <div id="lblPrice"></div>
+    <textarea id="description" cols="10" rows="10"></textarea>
+    <div class="mt-5">
+         <div class="card w-50 p-2">
+             <div class="card-header text-center" style="height: 130px;">
+                 <h2 id="title"></h2>
+             </div>
+             <div class="card-body">
+                <img id="img" width="100%" height="400px">
+             </div>
+             <div class="card-footer text-center">
+                 <button class="btn btn-outline-primary" id="prevClick">
+                    <span class="bi bi-arrow-left"></span>
+                 </button>
+                 <button class="btn btn-outline-primary" id="nextClick"> 
+                    <span class="bi bi-arrow-right"></span>
+                 </button>
+             </div>
+         </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Effects</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+
+    <script>
+         $(function(){
+             $("#toggle").click(function(){
+                $("div").toggle(1000);
+             });
+
+             $("#slideDown").click(function(){
+                $("div").slideDown();
+             })
+
+             $("#slideUp").click(function(){
+                $("div").slideUp();
+             })
+
+             $("#fade").click(function(){
+                $("div").fadeOut();
+             })
+
+             $("#slideToggle").click(function(){
+                $("div").slideToggle();
+             })
+
+             $("#fadeToggle").click(function(){
+                $("div").fadeToggle();
+             })
+
+             $("#hide").click(function(){
+                $("div").hide();
+             })
+
+             $("#show").click(function(){
+                $("div").show();
+             })
+         })
+    </script>
+</head>
+<body align="center">
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="toggle">ToggleImage</button>
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="slideDown">SlideDown</button>
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="slideUp">SlideUp</button>
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="fade">FadeImage</button>
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="slideToggle">SlideToggleImage</button>
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="fadeToggle">FadeToggleImage</button>
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="hide">Hide Me</button>
+    <button style="margin-bottom: 50px; margin-top: 50px;" id="show">ShowImage</button>
+
+    <div>
+        <img src="../assets/Attention.jpg" width="300px" height="300px">
+    </div>
+</body>
+</html>
