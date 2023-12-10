@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <link rel="stylesheet" href=>
+
+    <script>
+        $(function()
+        {
+            $("button").click(function()
+            {
+                if(navigator.cookieEnabled==true)
+                {
+                    $.cookie('username',$('#UserName').val());
+                    location.href = "./fakestoreapi.html";
+                }
+                else
+                {
+                    location.href="./error.html";
+                }
+            })
+        })
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="d-flex justify-content-center align-content-center w-50">
+        <form>
+            <h2>Login </h2>
+            <div class="form-floating">
+                <input type="text" placeholder="UserName" id="UserName" class="form-control">
+                <label class="bi bi-person">UserName</label>
+             </div>
+             <div class="form-floating mt-3">
+                <input type="text" id="password" class="form-control" placeholder="Password">
+                <label class="bi bi-key">Password</label>
+             </div>
+             <div class="d-grid mt-3">
+                <button class="btn btn-primary">Submit</button>
+             </div>
+        </form>
+    </div>
+</body>
+</html>
